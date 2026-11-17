@@ -3,12 +3,12 @@ package seedfaker
 // Float64 returns a float uniformly in [0.0, 1.0), with 53 bits of precision.
 func (f *Faker) Float64() float64 { return float64(f.src.Uint64()>>11) / (1 << 53) }
 
-// FloatBetween returns a float uniformly in [min, max). It panics if min > max.
-func (f *Faker) FloatBetween(min, max float64) float64 {
-	if min > max {
-		panic("seedfaker: FloatBetween requires min <= max")
+// FloatBetween returns a float uniformly in [lo, hi). It panics if lo > hi.
+func (f *Faker) FloatBetween(lo, hi float64) float64 {
+	if lo > hi {
+		panic("seedfaker: FloatBetween requires lo <= hi")
 	}
-	return min + f.Float64()*(max-min)
+	return lo + f.Float64()*(hi-lo)
 }
 
 // Number returns a non-negative integer with up to digits digits. It panics unless
@@ -17,11 +17,11 @@ func (f *Faker) Number(digits int) int {
 	if digits < 1 || digits > 18 {
 		panic("seedfaker: Number requires digits in 1..18")
 	}
-	max := 1
-	for i := 0; i < digits; i++ {
-		max *= 10
+	limit := 1
+	for range digits {
+		limit *= 10
 	}
-	return f.IntN(max)
+	return f.IntN(limit)
 }
 
 // DigitNot returns a decimal digit other than d; it panics unless d is in 0..9.

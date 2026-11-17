@@ -133,7 +133,8 @@ func TestIPv6AndMACAreHexGroups(t *testing.T) {
 	f := seedfaker.New(7)
 	hex := func(s string) bool {
 		for _, r := range s {
-			if !((r >= '0' && r <= '9') || (r >= 'a' && r <= 'f')) {
+			isHex := (r >= '0' && r <= '9') || (r >= 'a' && r <= 'f')
+			if !isHex {
 				return false
 			}
 		}

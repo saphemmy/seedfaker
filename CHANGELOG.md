@@ -3,6 +3,12 @@
 The format follows [Keep a Changelog](https://keepachangelog.com/), and the project
 follows [Semantic Versioning](https://semver.org/).
 
+## [0.1.2] - 2026-11-17
+
+### Fixed
+- Renamed `min`/`max` parameters and locals so they no longer shadow the Go
+  builtins, which `golangci-lint` flagged. No change to behaviour or output.
+
 ## [0.1.1] - 2026-11-17
 
 ### Changed

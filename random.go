@@ -32,12 +32,12 @@ func (f *Faker) Uint64() uint64 { return f.src.Uint64() }
 // Bool reports a random boolean.
 func (f *Faker) Bool() bool { return f.src.Uint64()&1 == 0 }
 
-// IntBetween returns a uniform int in [min, max]; it panics if min > max.
-func (f *Faker) IntBetween(min, max int) int {
-	if min > max {
-		panic("seedfaker: IntBetween requires min <= max")
+// IntBetween returns a uniform int in [lo, hi]; it panics if lo > hi.
+func (f *Faker) IntBetween(lo, hi int) int {
+	if lo > hi {
+		panic("seedfaker: IntBetween requires lo <= hi")
 	}
-	return min + f.IntN(max-min+1)
+	return lo + f.IntN(hi-lo+1)
 }
 
 // Digit returns a decimal digit 0-9.
