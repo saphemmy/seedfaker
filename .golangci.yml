@@ -1,0 +1,14 @@
+linters:
+  enable:
+    - govet
+    - staticcheck
+    - revive
+    - misspell
+    - unconvert
+    - errcheck
+    - ineffassign
+    - unused
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

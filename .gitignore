@@ -1,0 +1,14 @@
+# Build and test output
+*.exe
+*.test
+*.out
+/bin/
+
+# Generated fuzz corpus (seed corpus is written inline in the tests)
+tests/testdata/fuzz/
+
+# Editor and OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
