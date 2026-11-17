@@ -7,7 +7,7 @@ import (
 
 var (
 	// reservedDomains (RFC 2606) never resolve, so a generated email can never
-	// reach a real inbox — a safety guarantee fakerphp does not make.
+	// reach a real inbox.
 	reservedDomains = []string{"example.com", "example.net", "example.org", "example.test"}
 	domainWords     = []string{"acme", "globex", "initech", "umbrella", "hooli", "example", "demo", "sample"}
 	tlds            = []string{"com", "net", "org", "io", "co", "dev", "app"}

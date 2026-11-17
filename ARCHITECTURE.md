@@ -1,8 +1,8 @@
 # Architecture
 
-seedfaker is a small deterministic engine with everything else composed on top. The
-core never grows a dependency, and first-party and third-party extensions sit at the
-same level.
+seedfaker is a small deterministic engine. Locales, providers, and factories build on
+top of it, and the core has no dependencies. First-party and third-party extensions
+use the same mechanisms.
 
 ## The engine
 
@@ -12,8 +12,8 @@ second word, so a caller passes one number.
 
 Every bounded draw goes through `IntN`, which reduces the raw 64-bit PCG output with
 Lemire's multiply-shift method, implemented here. Nothing calls `math/rand`'s
-distribution helpers, whose output may change between Go releases. That one decision
-is what makes output stable across Go versions; the PCG algorithm itself is fixed.
+distribution helpers, whose output may change between Go releases. This keeps output
+stable across Go versions. The PCG algorithm itself is fixed.
 
 Dates measure from the reference time, never `time.Now()`. `Clone` seeds a child from
 the parent's stream, so parallel work is deterministic in the parent's seed.
@@ -44,5 +44,5 @@ the parent's stream, so parallel work is deterministic in the parent's seed.
 
 Providers are a few lines of code each; subpackaging them would buy nothing and cost
 ergonomics. Locale data is where size grows with coverage, and most programs want one
-or two countries, so that is what gets split — the same reasoning as
+or two countries, so that is what gets split. This follows the same reasoning as
 `golang.org/x/text`.

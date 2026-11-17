@@ -3,7 +3,7 @@ package seedfaker
 import "fmt"
 
 // defaultTries bounds the retry loops in UniqueN and Valid before they report that
-// the value space is exhausted, instead of looping forever as fakerphp does.
+// the value space is exhausted.
 const defaultTries = 1000
 
 // UniqueN returns n distinct values from gen. It is deterministic: the stream is

@@ -16,8 +16,8 @@ All tests live in `tests/` and exercise the public API as a black box.
 
 `tests/testdata/golden.txt` is the determinism contract: the output of a fixed seed
 across the API. A change that alters it fails CI by design. If your change
-*intentionally* alters generated output — which makes it a breaking change for a new
-major version — regenerate it deliberately:
+*intentionally* alters generated output (which makes it a breaking change for a new
+major version), regenerate it deliberately:
 
 ```
 go test ./tests -run TestGolden -update
@@ -45,9 +45,9 @@ var Locale = seedfaker.Locale{
 func init() { seedfaker.Register(Locale) }
 ```
 
-Use real data, and get the postcode and phone formats right for the country — `#` is
-a digit and `?` is a letter in a format template. Add the package to the blank-import
-list in `tests/locale_test.go` so it is checked.
+Use real data, and get the postcode and phone formats right for the country. In a
+format template, `#` is a digit and `?` is a letter. Add the package to the
+blank-import list in `tests/locale_test.go` so it is checked.
 
 ## Style
 

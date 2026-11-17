@@ -3,13 +3,18 @@
 The format follows [Keep a Changelog](https://keepachangelog.com/), and the project
 follows [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-11-17
+
+### Changed
+- Wording in the README, documentation, and comments.
+
 ## [0.1.0] - 2026-11-17
 
 Initial release.
 
 ### Added
 - Deterministic `Faker`: a PCG source with an in-library uniform reduction, a fixed
-  reference time, and no global state — one seed yields one dataset.
+  reference time, and no global state. One seed yields one dataset.
 - Primitives: `IntN`, `IntBetween`, `Uint64`, `Bool`, `Float64`, `FloatBetween`,
   `Number`, `DigitNot`, `DigitNotNull`, `Letter`, `Pick`, `Shuffle`, `Weighted`,
   and the `Numerify`/`Lexify`/`Bothify` template fillers.

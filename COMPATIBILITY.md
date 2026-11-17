@@ -10,8 +10,8 @@ run, every machine and every supported Go version.
 
 Three design choices make this true:
 
-1. **One source.** Every value — numbers, strings, UUIDs, dates — comes from a
-   single PCG generator seeded from your seed. There is no second, unseeded source.
+1. **One source.** Every value (numbers, strings, UUIDs, dates) comes from a single
+   PCG generator seeded from your seed. There is no second, unseeded source.
 2. **Our own reduction.** Bounded integers come from a reduction implemented in this
    library (Lemire's method over the raw PCG output), not from `math/rand`, whose
    distribution helpers may change between Go releases.

@@ -11,7 +11,7 @@ import (
 var reference = time.Date(2020, time.January, 1, 0, 0, 0, 0, time.UTC)
 
 // Faker generates deterministic fake data. Build one with New; the zero value is
-// unusable. A Faker is not safe for concurrent use — use Clone or Fork for parallel
+// unusable. A Faker is not safe for concurrent use. Use Clone or Fork for parallel
 // work.
 type Faker struct {
 	src *rand.PCG

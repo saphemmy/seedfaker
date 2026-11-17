@@ -8,9 +8,9 @@ import (
 	"github.com/saphemmy/seedfaker/locale/ng"
 )
 
-// TestEveryGeneratorProducesOutput calls the whole public surface once, asserting a
-// non-empty, non-panicking result. It guards against a provider silently breaking
-// and lifts coverage over the generators the targeted tests do not reach.
+// TestEveryGeneratorProducesOutput calls the whole public surface once and checks
+// that each result is non-empty and does not panic. It covers the generators the
+// targeted tests do not reach.
 func TestEveryGeneratorProducesOutput(t *testing.T) {
 	f := seedfaker.New(123, seedfaker.WithLocale(ng.Locale))
 
